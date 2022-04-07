@@ -5,10 +5,10 @@ import utils.Constants;
 public class TeacherFullTime extends Teacher{
     private int experience;
 
-    public TeacherFullTime(String name, int experience) {
-        super(name);
+    public TeacherFullTime(int teacherId,String name, int experience) {
+        super(teacherId,name);
         this.experience = experience;
-        double totalSalary = Constants.BASE_SALARY * experience * Constants.MULTIPLIER_EXP_YEARS;
+        double totalSalary = getSalary() * experience * Constants.MULTIPLIER_EXP_YEARS;
         this.setSalary((int) totalSalary);
     }
 
@@ -22,7 +22,8 @@ public class TeacherFullTime extends Teacher{
 
     @Override
     public String toString(){
-        return "id: "+getId()+ "\n" +"Name: " +getName() + "\n"+ "Salary: "+getSalary() + "\n" +"Experience: "+ experience + "\n";
+        return "id: "+getTeacherId()+ "\n" +"Name: " +getName() + "\n"+ "Salary: "+getSalary() + "\n"
+                +"Experience: "+ experience + "\n";
     }
 
 

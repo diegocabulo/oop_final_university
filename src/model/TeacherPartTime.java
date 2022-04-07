@@ -5,13 +5,13 @@ import utils.Constants;
 public class TeacherPartTime extends Teacher{
     private int hoursPerWeek;
 
-
-    public TeacherPartTime( String name, int hoursPerWeek) {
-        super(name);
+    public TeacherPartTime(int teacherId, String name, int hoursPerWeek) {
+        super(teacherId, name);
         this.hoursPerWeek = hoursPerWeek;
-        int totalSalary = Constants.BASE_SALARY * hoursPerWeek;
+        int totalSalary = getSalary() * hoursPerWeek;
         this.setSalary(totalSalary);
     }
+
 
     public int getHoursPerWeek() {
         return hoursPerWeek;
@@ -23,6 +23,7 @@ public class TeacherPartTime extends Teacher{
 
     @Override
     public String toString(){
-        return "id: "+getId()+ "\n" +"Name: " +getName() + "\n"+ "Salary: "+getSalary() + "\n" +"hoursPerWeek: "+ hoursPerWeek+ "\n";
+        return "id: "+getTeacherId()+ "\n" +"Name: " +getName() + "\n"+ "Salary: "+getSalary()
+                + "\n" +"hoursPerWeek: "+ hoursPerWeek+ "\n";
     }
 }

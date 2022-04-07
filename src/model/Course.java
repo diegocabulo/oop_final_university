@@ -3,20 +3,22 @@ package model;
 import utils.Constants;
 
 import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
 
 public class Course {
     private int courseId;
     private String courseName;
     private int courseRoom;
     private Teacher teacher;
-    private ArrayList<Student> students;
+    private ArrayList<Integer> studentsId;
 
-    public Course(String courseName, int courseRoom, Teacher teacher, ArrayList<Student> students) {
-        this.courseId = (int) Math.floor(Math.random()*(Constants.MAX_ID-Constants.MIN_ID+1)+Constants.MIN_ID);
+    public Course(int courseId, String courseName, int courseRoom, Teacher teacher, ArrayList<Integer> studentsId) {
+        this.courseId = courseId;
         this.courseName = courseName;
         this.courseRoom = courseRoom;
         this.teacher = teacher;
-        this.students = students;
+        this.studentsId = studentsId;
     }
 
     public int getCourseId() {
@@ -51,11 +53,22 @@ public class Course {
         this.teacher = teacher;
     }
 
-    public ArrayList<Student> getStudents() {
-        return students;
+
+    public ArrayList<Integer> getStudentsId() {
+        return studentsId;
     }
 
-    public void setStudents(ArrayList<Student> students) {
-        this.students = students;
+    public void setStudentsId(ArrayList<Integer> studentsId) {
+        this.studentsId = studentsId;
     }
+
+
+
+    @Override
+    public String toString(){
+        String listStringId = studentsId.stream().map(Object::toString).collect(Collectors.joining(", "));
+        return "Course id: "+courseId+ "\n" +"Course Name: " +courseName + "\n"+ "Course Room: "+courseRoom + "\n"
+                +"Teacher Id: "+ teacher.getTeacherId() + "\n"+"Teacher Name: "+ teacher.getName() + "\n"+"Students Id: "+ listStringId + "\n";
+    }
+
 }

@@ -3,19 +3,23 @@ package model;
 import utils.Constants;
 
 public class Teacher {
-    private final int id;
+    private int teacherId;
     private String name;
     private int salary;
 
 
-    public Teacher(String name) {
-        this.id = (int) Math.floor(Math.random()*(Constants.MAX_ID-Constants.MIN_ID+1)+Constants.MIN_ID);
+    public Teacher(int teacherId, String name) {
+        this.teacherId = teacherId;
         this.name = name;
-        this.salary = 0;
+        this.salary= Constants.BASE_SALARY;
     }
 
-    public int getId() {
-        return id;
+    public int getTeacherId() {
+        return teacherId;
+    }
+
+    public void setTeacherId(int teacherId) {
+        this.teacherId = teacherId;
     }
 
     public String getName() {
