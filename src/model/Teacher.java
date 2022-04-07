@@ -8,8 +8,8 @@ public class Teacher {
     private int salary;
 
 
-    public Teacher(int teacherId, String name) {
-        this.teacherId = teacherId;
+    public Teacher(String name) {
+        this.teacherId = (int)Math.floor(Math.random()*(Constants.MAX_ID-Constants.MIN_ID+1)+Constants.MIN_ID);
         this.name = name;
         this.salary= Constants.BASE_SALARY;
     }

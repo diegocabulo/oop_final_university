@@ -3,13 +3,15 @@ package model;
 
 import utils.Constants;
 
+import java.util.stream.Collectors;
+
 public class Student {
     private int studentId;
     private String name;
     private  int age;
 
-    public Student(int studentId, String name, int age) {
-        this.studentId = studentId;
+    public Student(String name, int age) {
+        this.studentId = (int)Math.floor(Math.random()*(Constants.MAX_ID-Constants.MIN_ID+1)+Constants.MIN_ID);
         this.name = name;
         this.age = age;
     }
@@ -36,5 +38,10 @@ public class Student {
 
     public void setAge(int age) {
         this.age = age;
+    }
+
+    @Override
+    public String toString(){
+        return "Student id: "+studentId+ "\n" + "Student name: "+name+ "\n";
     }
 }

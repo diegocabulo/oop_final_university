@@ -5,8 +5,8 @@ import utils.Constants;
 public class TeacherFullTime extends Teacher{
     private int experience;
 
-    public TeacherFullTime(int teacherId,String name, int experience) {
-        super(teacherId,name);
+    public TeacherFullTime(String name, int experience) {
+        super(name);
         this.experience = experience;
         double totalSalary = getSalary() * experience * Constants.MULTIPLIER_EXP_YEARS;
         this.setSalary((int) totalSalary);

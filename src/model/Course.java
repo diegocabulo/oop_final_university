@@ -3,7 +3,6 @@ package model;
 import utils.Constants;
 
 import java.util.ArrayList;
-import java.util.List;
 import java.util.stream.Collectors;
 
 public class Course {
@@ -13,8 +12,8 @@ public class Course {
     private Teacher teacher;
     private ArrayList<Integer> studentsId;
 
-    public Course(int courseId, String courseName, int courseRoom, Teacher teacher, ArrayList<Integer> studentsId) {
-        this.courseId = courseId;
+    public Course(String courseName, int courseRoom, Teacher teacher, ArrayList<Integer> studentsId) {
+        this.courseId = (int)Math.floor(Math.random()*(Constants.MAX_ID-Constants.MIN_ID+1)+Constants.MIN_ID);
         this.courseName = courseName;
         this.courseRoom = courseRoom;
         this.teacher = teacher;

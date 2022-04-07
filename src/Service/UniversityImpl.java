@@ -1,8 +1,6 @@
 package Service;
 
-import model.Course;
-import model.Student;
-import model.Teacher;
+import model.*;
 
 import java.util.ArrayList;
 import java.util.Objects;
@@ -28,6 +26,14 @@ public class UniversityImpl implements University{
     public void addCourse(Course course) {
         courses.add(course);
 
+    }
+
+    @Override
+    public void listAllStudents() {
+        System.out.println("STUDENTS IN UNIVERSITY");
+        for(Student student: students){
+            System.out.println(student);
+        }
     }
 
     @Override
@@ -57,10 +63,20 @@ public class UniversityImpl implements University{
     }
 
     @Override
+    public Teacher getTeacher(Integer teacherId) {
+        for (Teacher teacher:teachers){
+            if(teacherId.equals(teacher.getTeacherId())){
+                return teacher;
+            }
+        }
+        return null;
+    }
+
+    @Override
     public void getInfoCourse(Integer courseId) {
         for(Course course: courses){
             if(courseId.equals(course.getCourseId())){
-                System.out.println("Course info");
+                System.out.println("<<<---Course info--->>>");
                 System.out.println(course);
             }
         }
@@ -79,27 +95,42 @@ public class UniversityImpl implements University{
 
 
     @Override
-    public Student createNewStudent(int studentId, String name, int age) {
-        return new Student(studentId, name,age);
+    public Student createNewStudent(String name, int age) {
+        return new Student(name,age);
     }
 
     @Override
-    public void createCourse(int id, String courseName, int courseRoom, Teacher teacher, ArrayList<Integer> studentsIds) {
-        courses.add(new Course(id,courseName,courseRoom,teacher,studentsIds));
+    public Course createCourse(String courseName, int courseRoom, Teacher teacher, ArrayList<Integer> studentsIds) {
+        return new  Course(courseName,courseRoom,teacher,studentsIds);
     }
 
 
     @Override
-    public void getAllCourseByStudentId(Integer studentId) {
+    public void findAllCourseByStudentId(Integer studentId) {
+        boolean foundStudent = false;
         for(Course course:courses){
             for(Integer student: course.getStudentsId()){
                 if(studentId.equals(student)){
+                    foundStudent = true;
                     System.out.println("Course id: "+course.getCourseId()+ "\n"
                             +"Course Name: " +course.getCourseName() + "\n"+"Course Room: " +course.getCourseRoom() + "\n");
                 }
             }
         }
-        System.out.println("The student is not assign in any course");
+        if(!foundStudent){
+            System.out.println("The student is not assign in any course");
+        }
 
+
+    }
+
+    @Override
+    public TeacherPartTime createPartTimeTeacher(String teacherName, int hoursPerWeek) {
+        return new TeacherPartTime(teacherName,hoursPerWeek);
+    }
+
+    @Override
+    public TeacherFullTime createFullTimeTeacher(String teacherName, int experience) {
+        return new TeacherFullTime(teacherName,experience);
     }
 }
