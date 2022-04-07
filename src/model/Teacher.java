@@ -1,5 +1,4 @@
 package model;
-
 import utils.Constants;
 
 public class Teacher {

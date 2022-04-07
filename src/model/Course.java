@@ -1,7 +1,6 @@
 package model;
 
 import utils.Constants;
-
 import java.util.ArrayList;
 import java.util.stream.Collectors;
 

@@ -85,12 +85,12 @@ public class Main {
     }
 
     private static void listTeachers(University university){
-        university.listAllTeachers();
+        university.findAllTeachers();
     }
 
     private static void getAllCourses(University university){
         Scanner scanner = new Scanner(System.in);
-        university.listAllCourses();
+        university.findAllCourses();
         System.out.print("Type a course id to get more information: ---> ");
         String courseId = scanner.next();
         university.getInfoCourse(Integer.parseInt(courseId));
@@ -103,7 +103,7 @@ public class Main {
         System.out.print("How old is the student: ---> ");
         int studentAge = scanner.nextInt();
         Student student = university.createNewStudent(studentName,studentAge);
-        university.listAllCourses();
+        university.findAllCourses();
         System.out.print("Enter the course id to add student to course : ---> ");
         int courseId = scanner.nextInt();
         university.addStudentToCourse(student,courseId);
@@ -115,13 +115,13 @@ public class Main {
         String courseName = scanner.next();
         System.out.print("Enter a course Room: ---> ");
         int courseRoom = scanner.nextInt();
-        university.listAllTeachers();
+        university.findAllTeachers();
         System.out.print("Enter the teacher id to add teacher to course: ---> ");
         int teacherId = scanner.nextInt();
         Teacher teacher = university.getTeacher(teacherId);
         String inputNumber;
         ArrayList<Integer> studentsId = new ArrayList<>();
-        university.listAllStudents();
+        university.findAllStudents();
         while (true){
             System.out.print("Enter the Student id to add student to course OR (q) to finish adding: ---> ");
             inputNumber = scanner.next().toLowerCase();
@@ -136,7 +136,7 @@ public class Main {
 
     private static void searchAllCoursesByStudent(University university){
         Scanner scanner = new Scanner(System.in);
-        university.listAllStudents();
+        university.findAllStudents();
         System.out.print("Enter a student id name: ---> ");
         int studentId = scanner.nextInt();
         university.findAllCourseByStudentId(studentId);

@@ -1,7 +1,5 @@
 package model;
 
-import utils.Constants;
-
 public class TeacherPartTime extends Teacher{
     private int hoursPerWeek;
 

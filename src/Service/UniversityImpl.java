@@ -1,7 +1,6 @@
 package Service;
 
 import model.*;
-
 import java.util.ArrayList;
 import java.util.Objects;
 
@@ -29,7 +28,7 @@ public class UniversityImpl implements University{
     }
 
     @Override
-    public void listAllStudents() {
+    public void findAllStudents() {
         System.out.println("STUDENTS IN UNIVERSITY");
         for(Student student: students){
             System.out.println(student);
@@ -37,7 +36,7 @@ public class UniversityImpl implements University{
     }
 
     @Override
-    public void listAllTeachers() {
+    public void findAllTeachers() {
         System.out.println("TEACHERS IN UNIVERSITY");
         for(Teacher teacher: teachers){
             System.out.println(teacher);
@@ -45,7 +44,7 @@ public class UniversityImpl implements University{
     }
 
     @Override
-    public void listAllCourses() {
+    public void findAllCourses() {
         System.out.println("COURSES IN UNIVERSITY");
         for(Course course: courses){
             System.out.println("Course id: "+course.getCourseId()+ "\n" +"Course Name: " +course.getCourseName() + "\n");

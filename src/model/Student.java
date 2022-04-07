@@ -1,9 +1,6 @@
 package model;
-
-
 import utils.Constants;
 
-import java.util.stream.Collectors;
 
 public class Student {
     private int studentId;
