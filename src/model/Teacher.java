@@ -1,25 +1,21 @@
 package model;
 
-
 import utils.Constants;
 
-public class Student {
-    private int id;
+public class Teacher {
+    private final int id;
     private String name;
-    private  int age;
+    private int salary;
 
-    public Student(int id, String name, int age) {
+
+    public Teacher(String name) {
         this.id = (int) Math.floor(Math.random()*(Constants.MAX_ID-Constants.MIN_ID+1)+Constants.MIN_ID);
         this.name = name;
-        this.age = age;
+        this.salary = 0;
     }
 
     public int getId() {
         return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public String getName() {
@@ -30,11 +26,11 @@ public class Student {
         this.name = name;
     }
 
-    public int getAge() {
-        return age;
+    public int getSalary() {
+        return salary;
     }
 
-    public void setAge(int age) {
-        this.age = age;
+    public void setSalary(int salary) {
+        this.salary = salary;
     }
 }
