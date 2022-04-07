@@ -8,16 +8,17 @@ public interface University {
     void addTeacher(Teacher teacher);
     void addStudent(Student student);
     void addCourse(Course course);
-    void listAllStudents();
-    void listAllTeachers();
-    void listAllCourses();
-    Integer getCourse(Integer courseId);
-    Teacher getTeacher(Integer teacherId);
+    void findAllStudents();
+    void findAllTeachers();
+    void findAllCourses();
+    void findAllCourseByStudentId(Integer studentId);
     void getInfoCourse(Integer courseId);
     void addStudentToCourse(Student student,int courseId);
-    Student createNewStudent(String name, int age);
-    Course createCourse(String courseName, int courseRoom, Teacher teacher, ArrayList<Integer> studentsIds);
-    void findAllCourseByStudentId(Integer studentId);
+    Integer getCourse(Integer courseId);
+    Teacher getTeacher(Integer teacherId);
     TeacherPartTime createPartTimeTeacher(String teacherName, int hoursPerWeek);
     TeacherFullTime createFullTimeTeacher(String teacherName, int experience);
+    Student createNewStudent(String name, int age);
+    Course createCourse(String courseName, int courseRoom, Teacher teacher, ArrayList<Integer> studentsIds);
+
 }
